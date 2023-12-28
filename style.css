@@ -1,0 +1,760 @@
+:root {
+    --primary: #b6895b;
+    --bg: #010101;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8);
+    border-bottom: 1px solid #694f34;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+}
+
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+    color: #fff;
+    display: inline-block;
+    margin: 0 1rem;
+    font-size: 1.3rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+
+    content: "";
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--primary);
+    transform: scaleX(0);
+    transition: 1s linear;
+
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+    margin: 0 0.4rem;
+    color: #fff;
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+
+#hambuerger-menu {
+    display: none;
+}
+
+.navbar .search-form{
+    position: absolute;
+    top: 100%;
+    right: 4%;
+    background-color: #fff;
+    width: 55rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 1s;
+
+}
+
+.navbar .search-form.active{
+    transform: scaleY(1);
+}
+
+.navbar .search-form input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    color: var(--bg);
+    padding: 1rem;
+}
+
+.navbar .search-form label{
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--bg);
+    margin-right: 1.5rem;
+}
+
+/* shoping card */
+#shopping-card-button{
+    position: relative;
+}
+
+#shopping-card-button .quantity-budge{
+    display: inline-block;
+    padding: 2px 5px;
+    background-color: red;
+    font-size: 0.7rem;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+}
+
+.shoping-card{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: 100vh;
+    width: 28rem;
+    padding: 0 1rem;
+    color: var(--bg);
+    background-color: #fff;
+    transition: 1s;
+}
+
+.shoping-card.active{
+    right: 0;
+}
+
+.shoping-card .card-item{
+    margin: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #333;
+    position: relative;
+}
+
+.shoping-card img{
+    height: 3.4rem;
+    border-radius: 50%;
+}
+
+.shoping-card h3{
+    font-size: 1.1rem;
+    padding:5px;
+    margin-left: 1rem;
+}
+
+.shoping-card .item-price{
+    font-size: 1rem;
+    margin-left: 2rem;
+}
+
+.shoping-card .card-item #add,
+.shoping-card .card-item #remove{
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px 5px;
+    margin: 0 8px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    font-size: 1rem;
+}
+
+
+/* shoping card end */
+
+
+.form-container label{
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.6rem;
+}
+
+.form-container h5{
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 1rem 0 0 0;
+}
+.form-container label{
+    text-align: right;
+}
+
+.form-container label span{
+    margin: 0 1rem;
+}
+
+.form-container input{
+    background-color: #ddd;
+    padding: 5px;
+    font-size: 1rem;
+    width: 70%;
+}
+.form-container .btn{
+    display: flex;
+    justify-content: center;
+}
+
+.form-container .btn .chekout-btn{
+    padding: 6px 14px;
+    background-color: royalblue;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+.form-container .btn .chekout-btn.disable{
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+/* navbar end */
+
+/* hero section */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('img/naav.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    -webkit-mask-image: linear-gradient(rgba(0,0,0,1)90%, rgba(0,0,0,0));
+    mask-image: linear-gradient(rgba(0,0,0,1) 90%, rgba(0,0,0,0));
+}
+
+/* .hero::after {
+    content: '';
+    display:block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1, 1, 5, 1)8%, rgba(255, 255, 255, 0)55%);
+
+} */
+
+.hero .content {
+    padding: 1.4rem 8%;
+    /* min-width: 60rem; */
+    text-align: start;
+    width: 100%;
+    position: fixed;
+    top: 100px;
+}
+
+.hero .content h1 {
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 1px 1px 1px black;
+    
+}
+
+.hero .content span {
+    display: block;
+    color: var(--primary);
+}
+
+.hero .content p {
+    line-height: 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-top: 1rem;
+    mix-blend-mode: difference;
+    color: #38220a;
+    
+
+}
+
+.hero .content .cta {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    text-shadow: 1px 1px 1px black;
+
+}
+
+/* hero section end */
+
+/* about section */
+
+.about, .menu, .contact, .products{
+    padding: 9rem 7% 1.4rem;
+}
+
+.about h2, .menu h2, .contact h2, .products h2{
+    text-align: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.about h2 span, .menu h2 span, .contact h2 span, .products h2 span{
+    color: var(--primary);
+}
+
+
+.about .row {
+    display: flex;
+}
+
+.about .row .about-img {
+    flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+    width: 100%;
+    -webkit-mask-image: url("img/love1.webp");
+    -webkit-mask-size:90%;
+    -webkit-mask-repeat:no-repeat;
+    
+
+}
+
+.about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+}
+
+.about .row .content h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.about .row .content p {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.7;
+    font-weight: 100;
+}
+
+
+/* about section end */
+
+
+/* menu section */
+
+.menu h2, .contact h2, .products h2{
+    margin-bottom: 1rem;
+}
+.menu p, .contact p, .products p{
+    text-align: center;
+    margin: auto;
+    font-size: 1.3rem;
+    font-weight: 100;
+    max-width: 50rem;
+}
+
+.menu .row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+}
+.menu .row .menu-card{
+    text-align: center;
+    margin:4rem 0.5rem;
+}
+.menu .row .menu-card img{
+    border-radius: 50%;
+    width: 60%;
+    
+}
+.menu .row .menu-card .menu-card-title{
+   margin: 1.5rem auto 0.5rem;
+
+}
+/* menu section end */
+
+
+/* section product */
+
+.products .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 5rem;
+}
+
+.products .product-card{
+    text-align: center;
+    border: 1px solid #666;
+    padding: 2rem;
+}
+
+.products .product-icon{
+    display: flex;
+    justify-content: center;
+    gap:0.5rem;
+}
+
+.products .product-icon a{
+    width: 4rem;
+    height: 4rem;
+    color: #fff;
+    margin: 0.3rem;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+.products .product-icon a:hover{
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.products .product-img{
+    padding: 1rem;
+}
+
+.products .product-img img{
+    height: 26rem;
+}
+
+.products .product-content h3{
+    font-size: 2rem;
+}
+
+.products .product-star{
+    font-size: 2rem;
+    padding: 0.8rem;
+}
+
+.products .product-star a{
+    color:var(--primary);
+}
+
+.products .product-star .star{
+    fill:var(--primary);
+}
+
+.products .product-price{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.products .product-price span{
+    font-weight: lighter;
+    font-size: 1.1rem;
+
+}
+
+
+/* section product end */
+
+/* contact section */
+
+    .contact .row{
+        display: flex;
+        background-color: #222;
+        margin-top: 2rem;
+        /* flex-wrap: wrap; */
+    }
+
+    .contact .row .map{
+        flex: 1 1 45rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .contact .row form{
+        flex: 1 1 45rem;
+        padding: 5rem 2rem;
+        text-align: center;
+    }
+
+    .contact .row form .input-group{
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        background-color: var(--bg);
+        border: 2px solid #eee;
+        padding-left: 2rem;
+    }
+
+    .contact .row form .input-group input{
+        background: none;
+        font-size: 1.6rem;
+        padding: 2rem;
+        width: 100%;
+        color: #fff;
+    }
+
+    .contact .row form .btn{
+        margin-top: 3rem;
+        font-size: 1.6rem;
+        padding: 1rem 3rem;
+        display: inline-block;
+        color: #fff;
+        background-color: var(--primary);
+        cursor: pointer;
+    }
+
+/* contact section end */
+
+/* footer */
+footer{
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+
+}
+
+footer .socials{
+    padding: 1rem 0;
+}
+footer .socials a{
+    color: #fff;
+    margin: 0.7rem;
+}
+footer .socials a:hover{
+    color: var(--bg);
+}
+
+footer .links a{
+    color: #fff;
+    padding: 3rem 1rem;
+    font-size: 1.3rem;
+}
+footer .links a:hover{
+    color: var(--bg);
+}
+
+footer .credit{
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+footer .credit a{
+    color: var(--bg);
+    font-weight: 300;
+}
+/* footer end */
+
+
+/* modal item */
+.modal{
+    display:none;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(1, 1, 1, 0.8);
+}
+
+
+.modal-container{
+    position: relative;
+    background-color: #fefefe;
+    color: var(--bg);
+    margin: 15% auto;
+    padding: 1.2rem;
+    border: 1px solid #666;
+    width: 80%;
+}
+
+/* animate modal */
+/* @keyframes aimateModal {
+    from{
+        top: -30rem;
+        opacity: 0;
+    }
+    to{
+        top: 0;
+        opacity: 1;
+    }
+} */
+
+.close-icon{
+    position: absolute;
+    right: 1rem;
+}
+
+.modal-content{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.modal-content img{
+    height: 15rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+.modal-content p{
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    margin-top: 1.2rem;
+}
+
+.modal-content .btn-modal{
+    display: flex;
+    gap: 1rem;
+    width: 15rem;
+    background-color: var(--primary);
+    color: #fff;
+    margin-top: 1rem;
+    padding: 1rem 1.6rem;
+
+}
+/* modal item end */
+
+/* media query */
+
+/* laptop */
+
+@media (max-width:1366px) {
+    html {
+        font-size: 85%;
+    }
+
+    .about .row.about-img img {
+        width: 80%;
+    }
+
+}
+
+
+/* tablet */
+
+@media (max-width:768px) {
+    html {
+        font-size: 65%;
+    }
+
+    #hambuerger-menu {
+        display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+
+    }
+
+    .navbar-extra #hambuerger-menu{
+        padding: 0 1rem;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.3);
+    }
+
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .row.about-img img {
+        min-width: 26rem;
+        object-fit: cover;
+        object-position: center;
+    }
+    .about .row .content{
+        padding: 0;
+    }
+    .about .row .content h3{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .contact .row{
+        flex-wrap: wrap;
+    }
+
+    .contact .row .map{
+        height: 35rem;
+    }
+    .contact .row form{
+        padding: 0;
+    }
+    .navbar .search-form{
+        width: 90%;
+        right: 3rem;
+    }
+    .modal-content{
+        flex-wrap: wrap;
+    }
+}
+
+/* hp */
+
+@media (max-width:450px) {
+    html {
+        font-size: 57%;
+        margin: 0;
+    }
+}
