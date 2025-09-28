@@ -1,0 +1,139 @@
+/* modal.css */
+
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Background modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible; /* kalau mau default hidden -> hidden */
+    opacity: 1;          /* kalau mau default hidden -> 0 */
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+  }
+  
+  /* Container modal */
+  .modal-container {
+    background-color: #fff;
+    border-radius: 12px;
+    max-width: 1200px;
+    height: auto;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Animasi muncul */
+  @keyframes fadeIn {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Tombol close */
+  .close-icon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    transition: 0.3s;
+  }
+  .close-icon:hover {
+    color: red;
+  }
+  
+  /* Konten modal */
+  .modal-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  /* Gambar produk */
+  .modal-content img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Detail produk */
+  .product-content {
+    flex: 1;
+  }
+  
+  /* Judul */
+  .product-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  
+  /* Deskripsi */
+  .product-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  /* Bintang rating */
+  .product-star {
+    margin-bottom: 10px;
+  }
+  .product-star i {
+    stroke: gold;
+    fill: gold;
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Harga */
+  .product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+  }
+  .product-price span {
+    font-size: 0.9rem;
+    text-decoration: line-through;
+    margin-left: 10px;
+    color: #888;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .modal-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .modal-content img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 15px auto;
+    }
+  }
+  

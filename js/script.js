@@ -43,6 +43,17 @@ shopBtn.onclick = (e) => {
     e.preventDefault()
 };
 
+// Modal Box
+const itemDetailModal = document.querySelector('#item-detail-modal');
+const itemDetailButtons = document.querySelectorAll('.item-detail-button');
+
+itemDetailButtons.forEach((btn) => {
+  btn.onclick = (e) => {
+    itemDetailModal.style.display = 'flex';
+    e.preventDefault();
+  };
+});
+
 //menghilangkan selain shopping card button
 
 document.addEventListener("click", function(a){

@@ -9,6 +9,8 @@ document.addEventListener('alpine:init', () => {
 
     }));
 
+    
+
     Alpine.store('card', {
         item: [],
         total: 0,
@@ -74,6 +76,9 @@ document.addEventListener('alpine:init', () => {
 
 
 
+
+
+
 //Form Validation
 const btnChekout = document.querySelector(".chekout-btn");
 btnChekout.disable = true;
@@ -98,10 +103,24 @@ btnChekout.addEventListener('click', (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
-    //const objData = new Object.fromEntries(data);
-    //console.log(objData);
-})
+    const objData = Object.fromEntries(data);
+    const massage = formatMassage(objData);
+    window.open('http://wa.me/6282314345886?text=' + encodeURIComponent(massage))
+});
 
+
+//format pasan di wa
+const formatMassage = (obj)=>{
+   return `Data Customer
+    nama : ${obj.name}
+    email : ${obj.email}
+    no hp : ${obj.phone}
+
+Data Pesanan
+${JSON.parse(obj.items).map((item)=>`${item.name}(${item.quantity} x ${rp(item.total)})\n`)}
+   TOTAL : ${rp(obj.total)}
+   Terima Kasih`;
+};
 
 //konversi rupiah
 

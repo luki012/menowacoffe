@@ -15,9 +15,6 @@
     <!-- alphine js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- app -->
-    <!-- <script src="src/app.js"></script> -->
-
     <!-- father icon -->
     <script src="https://unpkg.com/feather-icons"></script>
 
@@ -147,40 +144,60 @@
 
     <!-- menu section -->
 
-    <section id="menu" class="menu">
-        <h2>Menu <span>Kami</span></h2>
-
-        <p>Semua baik-baik saja, ketika aku mengunjungi cafe ini dan menikmati segelas kopi. </p>
-
+    <section class="products" id="products" x-data="product">
+        <h2><span>Product Unggulan </span>Kami</h2>
+        <p>Cafe adalah cafe, tetapi kamu unik. Begitu juga cafe kami.</p>
+    
         <div class="row">
-            <div class="menu-card">
-                <img class="menu-card-img" src="img/prodak1.jpg" alt="expreso">
-                <h3 class="menu-card-title">- Exprsso -</h3>
-                <p>IDR 13K</p>
-            </div>
-            <div class="menu-card">
-                <img class="menu-card-img" src="img/prodak2.jpg" alt="expreso">
-                <h3 class="menu-card-title">- Mocca Latte -</h3>
-                <p>IDR 10K</p>
-            </div>
-            <div class="menu-card">
-                <img class="menu-card-img" src="img/prodak3.jpg" alt="expreso">
-                <h3 class="menu-card-title">- Cappuchino -</h3>
-                <p>IDR 14K</p>
-            </div>
-            <div class="menu-card">
-                <img class="menu-card-img" src="img/prodak5.jpg" alt="expreso">
-                <h3 class="menu-card-title">- Mix Vanila -</h3>
-                <p>IDR 9K</p>
-            </div>
-            <div class="menu-card">
-                <img class="menu-card-img" src="img/prodak4.jpg" alt="expreso">
-                <h3 class="menu-card-title">- Coffe Milk -</h3>
-                <p>IDR 10K</p>
+            <template x-for="(item, index) in items" :key="index">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <a href="#" @click.prevent="$store.cart.add(item)">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#shopping-cart" />
+                            </svg>
+                        </a>
+                        <button type="button" class="eye-product" @click.prevent="showDetails(item)">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#eye" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-img">
+                        <img :src="`img/product/${item.img}`" :alt="item.name">
+                    </div>
+                    <div class="product-content">
+                        <h3 x-text="item.name"></h3>
+                        <div class="product-star">
+                            <svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#star" />
+                            </svg>
+                            <!-- ... more star icons ... -->
+                        </div>
+                        <div class="product-price">
+                            <span x-text="rp(item.price)"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    
+        <!-- Modal for product details -->
+        <div x-show="showModal" @click.away="showModal = false" class="modal">
+            <div class="modal-content">
+                <span @click="showModal = false" class="close">&times;</span>
+                <h2 x-text="selectedItem.name"></h2>
+                <img :src="`img/product/${selectedItem.img}`" :alt="selectedItem.name">
+                <p>Price: <span x-text="rp(selectedItem.price)"></span></p>
+                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
-
+    
     </section>
+    
 
     <!-- menu section end -->
 
@@ -200,7 +217,7 @@
                                 <use href="img/feather-sprite.svg#shopping-cart" />
                             </svg>
                         </a>
-                        <a class="eye-product" href="">
+                        <a class="eye-product"  href="modal.html">
                             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <use href="img/feather-sprite.svg#eye" />
@@ -246,6 +263,7 @@
     </section>
 
     <!-- Produk section end -->
+
 
 
     <!-- contact section -->
@@ -301,34 +319,7 @@
 
     <!-- footer end -->
 
-    <!-- modal box item -->
 
-    <div class="modal" id="modal-item-detail">
-        <div class="modal-container">
-            <a href="#" class="close-icon"><i data-feather="x"></i></a>
-            <div class="modal-content">
-                <img src="img/prodak2.jpg" alt="">
-                <div class="product-content">
-                    <h3>Coffe Ekonomis</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia impedit quam laborum,
-                        necessitatibus dolor omnis est ipsa molestias saepe odio, nostrum iste.</p>
-                    <div class="product-star">
-                        <a href=""><i data-feather="star" class="star"></i></a>
-                        <a href=""><i data-feather="star"></i></a>
-                        <a href=""><i data-feather="star"></i></a>
-                        <a href=""><i data-feather="star"></i></a>
-                        <a href=""><i data-feather="star"></i></a>
-                    </div>
-                    <div class="product-price">
-                        IDR 33K <span>50K</span>
-                    </div>
-                    <a href="#" class="btn-modal"><i data-feather="shopping-cart"></i><span>add shoping card</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- modal box item en -->
 
     <script src="src/app.js"></script>
 
